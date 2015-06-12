@@ -31,3 +31,10 @@ check_order:
     path: /check_order/{orderId}
     defaults: { _controller: miniShopBundle:Default:checkOrder }
     requirements: { method: get }
+
+default:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: products
+        permanent: true
