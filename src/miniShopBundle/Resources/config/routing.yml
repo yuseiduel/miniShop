@@ -1,0 +1,33 @@
+products:
+    path: /products
+    defaults: { _controller: miniShopBundle:Default:products }
+    requirements: { _method: get }
+
+filtered_products_by_size:
+    path: /filtered_products_by_size/{size}
+    defaults: { _controller: miniShopBundle:Default:filteredProductsBySize }
+    requirements: { _method: get }
+
+add_product_to_cart:
+    path: /add_to_cart/{productId}
+    defaults: { _controller: miniShopBundle:Default:addToCart }
+    requirements: { _method: post }
+
+show_shopping_cart:
+    path: /shopping_cart
+    defaults: { _controller: miniShopBundle:Default:shoppingCart }
+    requirements: { _method: get }
+
+check_out:
+    path: /check_out
+    defaults: { _controller: miniShopBundle:Default:checkOut }
+
+check_orders:
+    path: /check_orders
+    defaults: { _controller: miniShopBundle:Default:checkOrders }
+    requirements: { _method: get }
+
+check_order:
+    path: /check_order/{orderId}
+    defaults: { _controller: miniShopBundle:Default:checkOrder }
+    requirements: { method: get }

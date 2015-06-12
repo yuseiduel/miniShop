@@ -1,0 +1,40 @@
+{% extends "miniShopBundle::base.html.twig" %}
+{% block body %}
+    <h3>Products</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Surname
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>
+                    {{ order.name }}
+                </td>
+                <td>
+                    {{ order.surname }}
+                </td>
+                <td>
+                    {{ order.price }}
+                </td>
+                <td>
+                    <a href="{{ path("check_order", {'orderId': order.id}) }}">Check Order</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

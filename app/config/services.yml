@@ -1,0 +1,26 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    mini_shop_service:
+        class: miniShopBundle\Services\miniShopService
+        arguments: [ "@doctrine.orm.entity_manager" ]
+
+    kernel.listener.check_out_exception_listener:
+        class: miniShopBundle\EventListener\CheckOutExceptionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+        arguments: [ "@router", "@service_container", "@session"]
+
+    twig_helper.twig_extension:
+        class: miniShopBundle\Twig\TwigHelper
+        public: false
+        tags:
+            - { name: twig.extension }
+        arguments: [ "@session", "@mini_shop_service" ]
+
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

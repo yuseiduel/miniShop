@@ -1,0 +1,40 @@
+{% extends "miniShopBundle::base.html.twig" %}
+{% block body %}
+    <h3>Products</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Number
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for orderedProduct in orderedProducts %}
+            <tr>
+                <td>
+                    {{ orderedProduct.name }}
+                </td>
+                <td>
+                    {{ orderedProduct.size }}
+                </td>
+                <td>
+                    {{ orderedProduct.price }}
+                </td>
+                <td>
+                    {{ orderedProduct.number }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

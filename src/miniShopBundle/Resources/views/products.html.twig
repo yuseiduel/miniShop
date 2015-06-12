@@ -1,0 +1,46 @@
+{% extends "miniShopBundle::base.html.twig" %}
+{% block body %}
+    <h3>Products</h3>
+    <h4>Size filters:</h4>
+    <a href="{{ path("filtered_products_by_size", {'size': "S"}) }}">S</a>
+    <a href="{{ path("filtered_products_by_size", {'size': "M"}) }}">M</a>
+    <a href="{{ path("filtered_products_by_size", {'size': "L"}) }}">L</a>
+    <a href="{{ path("filtered_products_by_size", {'size': "XL"}) }}">XL</a>
+    <a href="{{ path("products") }}">All</a>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>
+                    {{ product.name }}
+                </td>
+                <td>
+                    {{ product.size }}
+                </td>
+                <td>
+                    {{ product.price }}
+                </td>
+                <td>
+                    <a class="addToCart" data-path="{{ path("add_product_to_cart", {'productId': product.id}) }}" >Add to cart</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

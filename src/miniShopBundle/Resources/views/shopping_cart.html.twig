@@ -1,0 +1,41 @@
+{% extends "miniShopBundle::base.html.twig" %}
+{% block body %}
+    <h3>Products</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Number
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cartProduct in cartProducts %}
+            <tr>
+                <td>
+                    {{ cartProduct.name }}
+                </td>
+                <td>
+                    {{ cartProduct.size }}
+                </td>
+                <td>
+                    {{ cartProduct.number }}
+                </td>
+                <td>
+                    {{ cartProduct.price }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path("check_out") }}">Check Out</a>
+{% endblock %}
